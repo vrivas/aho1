@@ -90,12 +90,13 @@ class AhorcadoTest {
         // Para las pruebas, usa palabras en las que se repitan las letras, como: destornillador
 
         // @TODO Comprueba que devuelve 0 errores
-
+        assertEquals(0, Ahorcado.numErroresCometidos("destornillador", "destornila"));
         // @TODO Comprueba que devuelve 1 error
-
+        assertEquals(1, Ahorcado.numErroresCometidos("destornillador", "destornilF"));
         // @TODO Comprueba que devuelve 2 errores
-
+        assertEquals(2, Ahorcado.numErroresCometidos("destornillador", "destornilFG"));
         // @TODO Comprueba que devuelve 10 errores 
+        assertEquals(10, Ahorcado.numErroresCometidos("destornillador", "1234567890"));
 
     }
 }
