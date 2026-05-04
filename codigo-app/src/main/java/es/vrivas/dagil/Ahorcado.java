@@ -69,7 +69,7 @@ public final class Ahorcado {
         }
 
         // @TODO Debes devolver el resultado correcto, que no es null
-        return null;
+        return resultado;
     }
 
     /**
