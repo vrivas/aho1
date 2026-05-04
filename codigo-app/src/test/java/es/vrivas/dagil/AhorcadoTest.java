@@ -63,18 +63,24 @@ class AhorcadoTest {
         // Ejemplo de uso del método: Ahorcado.letraEnPalabra('a', "sarten") debe devolver true;
 
         // @TODO Comprueba que para el valor NULL en la cadena devuelve false con cualquier letra que le des.
-
+        assertFalse(Ahorcado.letraEnPalabra('a', null));
         // @TODO Comprueba que para la cadena vacía devuelve false
+        assertFalse(Ahorcado.letraEnPalabra('a', ""));
 
         // @TODO Comprueba que la letra no aparece en una cadena de tamaño 1 que no la contiene
+        assertFalse(Ahorcado.letraEnPalabra('a', "c"));
 
         // @TODO Comprueba que la letra no aparece en una cadena de tamaño 2 que no la contiene
+        assertFalse(Ahorcado.letraEnPalabra('a', "pe"));
 
         // @TODO Comprueba que la letra SI aparece en una cadena de tamaño 1 que la contiene
+        assertTrue(Ahorcado.letraEnPalabra('a', "a"));
 
         // @TODO Comprueba que la letra SI aparece en una cadena de tamaño mayor que 1 que sí la contiene
+        assertTrue(Ahorcado.letraEnPalabra('a', "ac"));
 
         // @TODO Comprueba que la letra SI aparece en una cadena de tamaño mayor que 1 que sí la contiene en la últia posición.
+        assertTrue(Ahorcado.letraEnPalabra('a', "cola"));
     }
 
     // Debes completar los tests que se indican; el método numErroresCometidos funciona correctamente.
