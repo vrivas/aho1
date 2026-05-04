@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class AhorcadoTest {
     @Test
@@ -34,6 +34,7 @@ class AhorcadoTest {
 
     }
 
+    // Estos Tests están bien escritos, pero debes modificar el método quedanLetrasPorDescubrir para que se pasen correctamente
     @Test
     void quedanLetrasPorDescubrir_test() {
         assertTrue(Ahorcado.quedanLetrasPorDescubrir("elefante", ""));
@@ -46,17 +47,7 @@ class AhorcadoTest {
         assertFalse(Ahorcado.quedanLetrasPorDescubrir("elefante", "hjktnafle"));
     }
 
-    @Test
-    public void letraEnPalabra_test() {
-        assertFalse(Ahorcado.letraEnPalabra('a', null));
-        assertFalse(Ahorcado.letraEnPalabra('a', ""));
-        assertFalse(Ahorcado.letraEnPalabra('a', "c"));
-        assertFalse(Ahorcado.letraEnPalabra('a', "co"));
-        assertTrue(Ahorcado.letraEnPalabra('a', "a"));
-        assertTrue(Ahorcado.letraEnPalabra('a', "ahora"));
-        assertTrue(Ahorcado.letraEnPalabra('a', "loma"));
-    }
-
+    // Estos Tests están bien escritos, pero debes modificar el método muestraLetrasPorDescubrir para que se pasen correctamente
     @Test
     public void muestraLetrasPorDescubrir_test() {
         assertEquals("-a-a", Ahorcado.muestraLetrasPorDescubrir("casa", "a"));
@@ -66,12 +57,46 @@ class AhorcadoTest {
         assertEquals("-est----ll----", Ahorcado.muestraLetrasPorDescubrir("destornillador", "esltgs"));
     }
 
+    // Debes completar los tests que se indican; el método letraEnPalabra funciona correctamente.
+    @Test
+    public void letraEnPalabra_test() {
+        // Ejemplo de uso del método: Ahorcado.letraEnPalabra('a', "sarten") debe devolver true;
+
+        // @TODO Comprueba que para el valor NULL en la cadena devuelve false con cualquier letra que le des.
+        assertFalse(Ahorcado.letraEnPalabra('a', null));
+        // @TODO Comprueba que para la cadena vacía devuelve false
+        assertFalse(Ahorcado.letraEnPalabra('a', ""));
+
+        // @TODO Comprueba que la letra no aparece en una cadena de tamaño 1 que no la contiene
+        assertFalse(Ahorcado.letraEnPalabra('a', "c"));
+
+        // @TODO Comprueba que la letra no aparece en una cadena de tamaño 2 que no la contiene
+        assertFalse(Ahorcado.letraEnPalabra('a', "pe"));
+
+        // @TODO Comprueba que la letra SI aparece en una cadena de tamaño 1 que la contiene
+        assertTrue(Ahorcado.letraEnPalabra('a', "a"));
+
+        // @TODO Comprueba que la letra SI aparece en una cadena de tamaño mayor que 1 que sí la contiene
+        assertTrue(Ahorcado.letraEnPalabra('a', "ac"));
+
+        // @TODO Comprueba que la letra SI aparece en una cadena de tamaño mayor que 1 que sí la contiene en la últia posición.
+        assertTrue(Ahorcado.letraEnPalabra('a', "cola"));
+    }
+
+    // Debes completar los tests que se indican; el método numErroresCometidos funciona correctamente.
     @Test
     public void numErroresCometidos_test() {
-        assertEquals(0, Ahorcado.numErroresCometidos("casa", "a"));
-        assertEquals(1, Ahorcado.numErroresCometidos("casa", "csd"));
-        assertEquals(2, Ahorcado.numErroresCometidos("casa", "dcst"));
-        assertEquals(3, Ahorcado.numErroresCometidos("casa", "poi"));
-        assertEquals(0, Ahorcado.numErroresCometidos("destornillador", "destornillador"));
+        // Ejemplo de uso del método: Ahorcado.numErroresCometidos("casa", "cdfga") debe devolver 3;
+        // Para las pruebas, usa palabras en las que se repitan las letras, como: destornillador
+
+        // @TODO Comprueba que devuelve 0 errores
+        assertEquals(0, Ahorcado.numErroresCometidos("destornillador", "destornila"));
+        // @TODO Comprueba que devuelve 1 error
+        assertEquals(1, Ahorcado.numErroresCometidos("destornillador", "destornilF"));
+        // @TODO Comprueba que devuelve 2 errores
+        assertEquals(2, Ahorcado.numErroresCometidos("destornillador", "destornilFG"));
+        // @TODO Comprueba que devuelve 10 errores 
+        assertEquals(10, Ahorcado.numErroresCometidos("destornillador", "1234567890"));
+
     }
 }

@@ -13,7 +13,7 @@ public final class Ahorcado {
      * @throws IllegalArgumentException Si pos<0
      * @throws IllegalArgumentException Si pos>=palabras.length
      */
-    public static String dameUnaPalabra(final String[] palabras, final int pos) throws IllegalArgumentException {
+    public static final String dameUnaPalabra(final String[] palabras, final int pos) throws IllegalArgumentException {
         if (pos < 0)
             throw new IllegalArgumentException("App:dameUnaPalabra: la posición solicitada no puede ser negativa.");
         if (pos >= palabras.length)
@@ -29,7 +29,9 @@ public final class Ahorcado {
      * @pre letrasDichas no puede tener caracteres repetidos
      * @return True si quedan letras por descubrir; false en otro caso.
      */
-    static public boolean quedanLetrasPorDescubrir(final String palabra,
+
+    // ESTE MÉTODO DEBES CORREGIRLO PARA QUE PASE LOS TESTS (QUE ESTÁN BIEN ESCRITOS) SIN PROBLEMA.
+    public static final boolean quedanLetrasPorDescubrir(final String palabra,
             final String letrasDichas) {
         int encontradas = 0;
         for (int i = 0; i < letrasDichas.length(); ++i) {
@@ -38,28 +40,17 @@ public final class Ahorcado {
                     ++encontradas;
             }
         }
-        return !(encontradas == palabra.length());
+        //@TODO: Debes devolver el valor correcto, que NO es siempre true.
+        return encontradas != palabra.length();
     }
 
     /**
-     * Comprueba si una letra aparece en una palabra.
-     * @param letra La letra a buscar.
-     * @param palabra La palabra en la que buscar.
-     * @return True si la letra aparece; false en caso contrario.
-     */
-    public static final boolean letraEnPalabra(final Character letra,
-            final String palabra) {
-        if (palabra == null)
-            return false;
-        return palabra.indexOf(letra, 0) != -1;
-    }
-
-    /**
-     * Genera una cadena con guiones en aquellas letras que faltan por descubrir.
-     * @param palabra Palabra a adivinar.
-     * @param letrasDichas Letras que ya ha dicho el jugador.
-     * @return Cadena con guiones en las letras por descubrir y las letras ya descubiertas en su sitio.
-     */
+    * Genera una cadena con guiones en aquellas letras que faltan por descubrir.
+    * @param palabra Palabra a adivinar.
+    * @param letrasDichas Letras que ya ha dicho el jugador.
+    * @return Cadena con guiones en las letras por descubrir y las letras ya descubiertas en su sitio.
+    */
+    // ESTE MÉTODO DEBES CORREGIRLO PARA QUE PASE LOS TESTS (QUE ESTÁN BIEN ESCRITOS) SIN PROBLEMA.
     public static final String muestraLetrasPorDescubrir(final String palabra, final String letrasDichas) {
         String resultado = "";
         for (int i = 0; i < palabra.length(); ++i) {
@@ -76,7 +67,23 @@ public final class Ahorcado {
                 }
             }
         }
+
+        // @TODO Debes devolver el resultado correcto, que no es null
         return resultado;
+    }
+
+    /**
+     * Comprueba si una letra aparece en una palabra.
+     * @param letra La letra a buscar.
+     * @param palabra La palabra en la que buscar.
+     * @return True si la letra aparece; false en caso contrario.
+     */
+    // ESTE MÉTODO ESTÁ CORRECTO, SIN EMBARGO SUS TESTS DEBES ESCRIBIRLOS.
+    public static final boolean letraEnPalabra(final Character letra,
+            final String palabra) {
+        if (palabra == null)
+            return false;
+        return palabra.indexOf(letra, 0) != -1;
     }
 
     /**
@@ -85,6 +92,7 @@ public final class Ahorcado {
      * @param letrasDichas Letras que ha dicho el usuario.
      * @return Número de letras dichas que NO están en la palabra.
      */
+    // ESTE MÉTODO ESTÁ CORRECTO, SIN EMBARGO SUS TESTS DEBES ESCRIBIRLOS.
     public static final int numErroresCometidos(final String palabra, final String letrasDichas) {
         int numErrores = 0;
         for (int i = 0; i < letrasDichas.length(); ++i) {
