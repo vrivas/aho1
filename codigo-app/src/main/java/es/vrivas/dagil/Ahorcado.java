@@ -41,15 +41,15 @@ public final class Ahorcado {
             }
         }
         //@TODO: Debes devolver el valor correcto, que NO es siempre true.
-        return true;
+        return encontradas != palabra.length();
     }
 
-     /**
-     * Genera una cadena con guiones en aquellas letras que faltan por descubrir.
-     * @param palabra Palabra a adivinar.
-     * @param letrasDichas Letras que ya ha dicho el jugador.
-     * @return Cadena con guiones en las letras por descubrir y las letras ya descubiertas en su sitio.
-     */
+    /**
+    * Genera una cadena con guiones en aquellas letras que faltan por descubrir.
+    * @param palabra Palabra a adivinar.
+    * @param letrasDichas Letras que ya ha dicho el jugador.
+    * @return Cadena con guiones en las letras por descubrir y las letras ya descubiertas en su sitio.
+    */
     // ESTE MÉTODO DEBES CORREGIRLO PARA QUE PASE LOS TESTS (QUE ESTÁN BIEN ESCRITOS) SIN PROBLEMA.
     public static final String muestraLetrasPorDescubrir(final String palabra, final String letrasDichas) {
         String resultado = "";
@@ -71,6 +71,7 @@ public final class Ahorcado {
         // @TODO Debes devolver el resultado correcto, que no es null
         return null;
     }
+
     /**
      * Comprueba si una letra aparece en una palabra.
      * @param letra La letra a buscar.
@@ -84,8 +85,6 @@ public final class Ahorcado {
             return false;
         return palabra.indexOf(letra, 0) != -1;
     }
-
-   
 
     /**
      * Devuelve el número de errores cometidos por las letras dichas que no están en la palabra.
